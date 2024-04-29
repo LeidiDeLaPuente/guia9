@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia #4</title>
+  </head>
+  <body>
+    <h2>PAGINA DE INICIO</h2>
+    <p th:text="Ejemplo"></p>
+    <p th:text="${mensaje}"></p>
+    <p th:text="${dato}"></p>
+    <hr>
+    <p th:text="${alguien.cedula}"></p>
+    <p th:text="${alguien.clave}"></p>
+    <p th:text="${alguien.nombre}"></p>
+    <p th:text="${alguien.email}"></p>
+
+    <div th:if="${usuarios != null and !usuarios.empty}">
+      <table border="1">
+        <tr>
+          <th>CEDULA</th>
+          <th>CLAVE</th>
+          <th>NOMBRE</th>
+          <th>EMAIL</th>
+        </tr>
+        <tr th:each="u: ${usuarios}">
+          <td th:text="$u.cedula"></td>
+          <td th:text="$u.clave"></td>
+          <td th:text="$u.nombre"></td>
+          <td th:text="$u.email"></td>
+        </tr>
+      </table>
+    </div>
+    <div th:if="${usuarios} == null or usuarios.empty">
+      No hay nada que ver ahora
+    </div>
+  </body>
+</html>
